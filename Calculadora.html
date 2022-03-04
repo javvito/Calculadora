@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        
+        function _id(ident){
+            return document.getElementById(ident);
+        }
+
+        function operar(operacion){
+            
+            var primero = _id("primero");
+            var segundo = _id("segundo");
+            var resul = _id("resultado");
+            var valor1 = primero.value;
+            var valor2 = segundo.value; 
+            var resultado; 
+            var manolo;
+
+            if (operacion == "+"){
+                resultado = parseInt(valor1) + parseInt(valor2);
+                manolo = valor1 + operacion + valor2 + "=" + resultado;
+            } else if (operacion == "-"){
+                resultado = parseInt(valor1) - parseInt(valor2);
+                manolo = valor1 + operacion + valor2 + "=" + resultado;
+            } else if (operacion == "*"){
+                resultado = parseInt(valor1) * parseInt(valor2);
+                manolo = valor1 + operacion + valor2 + "=" + resultado;
+            } else if (operacion == "/"){
+
+                if (valor2 == 0){
+                    alert("No se puede dividir por 0");
+                    resultado = "ERROR!";
+                } else{
+                    resultado = parseInt(valor1) / parseInt(valor2);
+                }
+                manolo = valor1 + operacion + valor2 + "=" + resultado;
+
+            } else if (operacion == "raiz"){
+                resultado = Math.sqrt(parseInt(valor1));
+                manolo = operacion +"(" + valor1 + ")" + "=" + resultado;
+            }
+            
+            resul.value = resultado.toPrecision(6);
+
+        }
+
+    </script>
+
+</head>
+
+
+<body id="cuerpo">
+
+    <input type="number" id="primero"> <br>
+    <input type="number" id="segundo"> <br>
+
+    <button id="boton" onclick="operar('+')">+</button>
+    <button id="boton" onclick="operar('-')">-</button>
+    <button id="boton" onclick="operar('*')">*</button>
+    <button id="boton" onclick="operar('/')">/</button>
+    <button id="boton" onclick="operar('raiz')">&#8730;</button>
+
+    <br><br>
+    <label for="resultado">Resultado</label>
+    <input type="text" id="resultado"> <label id="paridad"></label><br>
+
+</body>
+
+</html>
