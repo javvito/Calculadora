@@ -10,6 +10,9 @@
     
     <script>
         
+        window.onload=function(){alert('Bienvenido a esta pagina');}
+
+
         function _id(ident){
             return document.getElementById(ident);
         }
@@ -22,41 +25,53 @@
             var valor1 = primero.value;
             var valor2 = segundo.value; 
             var resultado; 
-            var manolo;
+            var numero;
 
             if (operacion == "+"){
                 resultado = parseInt(valor1) + parseInt(valor2);
-                manolo = valor1 + operacion + valor2 + "=" + resultado;
+                numero = valor1 + operacion + valor2 + "=" + resultado;
+                alert("Has hecho una operacion con +");
             } else if (operacion == "-"){
                 resultado = parseInt(valor1) - parseInt(valor2);
-                manolo = valor1 + operacion + valor2 + "=" + resultado;
+                numero = valor1 + operacion + valor2 + "=" + resultado;
+                alert("Has hecho una operacion con -");
             } else if (operacion == "*"){
                 resultado = parseInt(valor1) * parseInt(valor2);
-                manolo = valor1 + operacion + valor2 + "=" + resultado;
+                numero = valor1 + operacion + valor2 + "=" + resultado;
+                alert("Has hecho una operacion con *");
             } else if (operacion == "/"){
-
+                alert("Has hecho una operacion con /");
                 if (valor2 == 0){
                     alert("No se puede dividir por 0");
                     resultado = "ERROR!";
                 } else{
                     resultado = parseInt(valor1) / parseInt(valor2);
                 }
-                manolo = valor1 + operacion + valor2 + "=" + resultado;
+                numero = valor1 + operacion + valor2 + "=" + resultado;
 
             } else if (operacion == "raiz"){
+                alert("Has hecho una operacion con una raiz");
                 resultado = Math.sqrt(parseInt(valor1));
-                manolo = operacion +"(" + valor1 + ")" + "=" + resultado;
+                numero = operacion +"(" + valor1 + ")" + "=" + resultado;
             }
             
             resul.value = resultado.toPrecision(6);
-
         }
 
     </script>
+    <script>
+        window.setInterval (BlinkIt, 500);
+        var color = "red";
+        function BlinkIt () {
+        var blink = document.getElementById ("blink");
+        color = (color == "#ffffff")? "black" : "#ffffff";
+        blink.style.color = color;
+        blink.style.fontSize='36px';}
+    </script>
+        
 
 </head>
-
-<h1>CALCULADORA</h1>
+<div id="blink">Calculadora</div>
 <body id="cuerpo">
 
     <input type="number" id="primero"> <br>
